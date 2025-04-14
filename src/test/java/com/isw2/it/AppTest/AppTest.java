@@ -1,4 +1,4 @@
-package com.isw2.it;
+package com.isw2.it.AppTest;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

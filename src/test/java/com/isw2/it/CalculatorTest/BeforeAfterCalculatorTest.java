@@ -1,4 +1,4 @@
-package com.isw2.it;
+package com.isw2.it.CalculatorTest;
 
 /*
  *    Copyright (C) 2025 Guglielmo De Angelis (a.k.a. Gulyx)
@@ -21,39 +21,18 @@ package com.isw2.it;
  *
  */
 
-import java.util.Random;
+import org.junit.After;
+import org.junit.Before;
 
-import org.junit.Assert;
-import org.junit.Test;
+public class BeforeAfterCalculatorTest extends CalculatorTest{
 
-import com.isw2.it.Calculator;
-
-public class CalculatorTest {
-
-	@Test
-	public void testAdd() {
-		Calculator calculator = new Calculator();
-		double result = calculator.add(10, 50);
-		Assert.assertEquals(60, result, 0);
+	@Before
+	public void configureTheEnvironment(){
+		System.err.println("The environment has been configured");
 	}
 
-	@Test
-	public void testFooOdd() {
-		Calculator calculator = new Calculator();
-		Random r = new Random();
-		int oddValue = r.nextInt(Integer.MAX_VALUE/2)*2-1;
-		int result = calculator.foo(oddValue);
-		Assert.assertEquals(oddValue, result);
+	@After
+	public void releaseResources(){
+		System.err.println("All the resources have been released");
 	}
-
-	@Test
-	public void testFooEven() {
-		Calculator calculator = new Calculator();
-		Random r = new Random();
-		int evenValue = r.nextInt(Integer.MAX_VALUE/2)*2;
-		int result = calculator.foo(evenValue);
-		int expectedResult = evenValue/2;
-		Assert.assertEquals(expectedResult, result);
-	}
-
 }

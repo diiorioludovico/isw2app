@@ -1,4 +1,4 @@
-package com.isw2.it;
+package com.isw2.it.CalculatorTest;
 
 /*
  *    Copyright (C) 2025 Guglielmo De Angelis (a.k.a. Gulyx)
@@ -21,36 +21,15 @@ package com.isw2.it;
  *
  */
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class Calculator.
- */
-public class Calculator {
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param op1 the op 1
-	 * @param op2 the op 2
-	 * @return the double
-	 */
-	public double add(double op1, double op2){
-		return op1 + op2;
-	}
-	
-	/**
-	 * Foo.
-	 *
-	 * @param param the param
-	 * @return the int
-	 */
-	public int foo(int param) {
-		int result;
-		if (param%2 == 0)
-			result = param/2;
-		else
-			result = param;
-		return (result);
-	}
-		
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+
+@RunWith(value=Suite.class)
+@SuiteClasses(value={CalculatorTest.class, ParametrizedCalculatorTestAdd.class, ParametrizedCalculatorTestFoo.class})
+public class CalculatorTestSuite {
+
+//	Tests will be automatically retrieved from
+//  the classes specified in @SuiteClasses
+
 }

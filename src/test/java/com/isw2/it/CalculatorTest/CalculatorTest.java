@@ -1,4 +1,4 @@
-package com.isw2.it;
+package com.isw2.it.CalculatorTest;
 
 /*
  *    Copyright (C) 2025 Guglielmo De Angelis (a.k.a. Gulyx)
@@ -21,44 +21,39 @@ package com.isw2.it;
  *
  */
 
-import java.util.Arrays;
-import java.util.Collection;
+import java.util.Random;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
 
-import com.isw2.it.Calculator;
+import com.isw2.it.Calculator.Calculator;
 
-@RunWith(value=Parameterized.class)
-public class ParametrizedCalculatorTestAdd {
+public class CalculatorTest {
 
-	private double expected;
-	private double valueOne; 
-	private double valueTwo; 
-
-	@Parameters
-	public static Collection<Integer[]> getParameters(){
-		return Arrays.asList(new Integer[][]{
-				{2, 1, 1}, // expected, valueOne, valueTwo
-				{3, 2, 1}, // expected, valueOne, valueTwo
-				{4, 3, 1}, // expected, valueOne, valueTwo
-		});
-	}
-
-	public ParametrizedCalculatorTestAdd(double expected, double valueOne, double valueTwo){
-		this.expected = expected;
-		this.valueOne = valueOne;
-		this.valueTwo = valueTwo;
-	}
-	
 	@Test
-	public void sumTest() {
+	public void testAdd() {
 		Calculator calculator = new Calculator();
-		double result = calculator.add(this.valueOne, this.valueTwo);
-		Assert.assertEquals(this.expected, result, 0);
+		double result = calculator.add(10, 50);
+		Assert.assertEquals(60, result, 0);
+	}
+
+	@Test
+	public void testFooOdd() {
+		Calculator calculator = new Calculator();
+		Random r = new Random();
+		int oddValue = r.nextInt(Integer.MAX_VALUE/2)*2-1;
+		int result = calculator.foo(oddValue);
+		Assert.assertEquals(oddValue, result);
+	}
+
+	@Test
+	public void testFooEven() {
+		Calculator calculator = new Calculator();
+		Random r = new Random();
+		int evenValue = r.nextInt(Integer.MAX_VALUE/2)*2;
+		int result = calculator.foo(evenValue);
+		int expectedResult = evenValue/2;
+		Assert.assertEquals(expectedResult, result);
 	}
 
 }

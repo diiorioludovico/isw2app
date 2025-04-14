@@ -1,4 +1,4 @@
-package com.isw2.it;
+package com.isw2.it.Calculator;
 
 /*
  *    Copyright (C) 2025 Guglielmo De Angelis (a.k.a. Gulyx)
@@ -21,18 +21,36 @@ package com.isw2.it;
  *
  */
 
-import org.junit.After;
-import org.junit.Before;
-
-public class BeforeAfterCalculatorTest extends CalculatorTest{
-
-	@Before
-	public void configureTheEnvironment(){
-		System.err.println("The environment has been configured");
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Calculator.
+ */
+public class Calculator {
+	
+	/**
+	 * Adds the.
+	 *
+	 * @param op1 the op 1
+	 * @param op2 the op 2
+	 * @return the double
+	 */
+	public double add(double op1, double op2){
+		return op1 + op2;
 	}
-
-	@After
-	public void releaseResources(){
-		System.err.println("All the resources have been released");
+	
+	/**
+	 * Foo.
+	 *
+	 * @param param the param
+	 * @return the int
+	 */
+	public int foo(int param) {
+		int result;
+		if (param%2 == 0)
+			result = param/2;
+		else
+			result = param;
+		return (result);
 	}
+		
 }

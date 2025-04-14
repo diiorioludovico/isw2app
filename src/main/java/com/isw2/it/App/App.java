@@ -1,4 +1,4 @@
-package com.isw2.it;
+package com.isw2.it.App;
 
 /**
  * Hello world!

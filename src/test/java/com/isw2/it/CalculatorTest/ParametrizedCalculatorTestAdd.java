@@ -1,4 +1,4 @@
-package com.isw2.it;
+package com.isw2.it.CalculatorTest;
 
 /*
  *    Copyright (C) 2025 Guglielmo De Angelis (a.k.a. Gulyx)
@@ -30,36 +30,35 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import com.isw2.it.Calculator;
+import com.isw2.it.Calculator.Calculator;
 
 @RunWith(value=Parameterized.class)
-public class ParametrizedCalculatorTestFoo {
+public class ParametrizedCalculatorTestAdd {
 
-	private int expectedResult;
-	private int par; 
+	private double expected;
+	private double valueOne; 
+	private double valueTwo; 
 
-	
 	@Parameters
-	public static Collection<Integer[]> getOtherParameters(){
+	public static Collection<Integer[]> getParameters(){
 		return Arrays.asList(new Integer[][]{
-				{1, 2}, // expectedResult, par
-				{3, 3}, // expectedResult, par
-				{-2, -4}, // expectedResult, par
-				{0, 0}, // expectedResult, par
-				{-17, -17}, // expectedResult, par
+				{2, 1, 1}, // expected, valueOne, valueTwo
+				{3, 2, 1}, // expected, valueOne, valueTwo
+				{4, 3, 1}, // expected, valueOne, valueTwo
 		});
 	}
 
-	public ParametrizedCalculatorTestFoo(int expectedResult, int par){
-		this.expectedResult = expectedResult;
-		this.par = par;
+	public ParametrizedCalculatorTestAdd(double expected, double valueOne, double valueTwo){
+		this.expected = expected;
+		this.valueOne = valueOne;
+		this.valueTwo = valueTwo;
 	}
-
+	
 	@Test
-	public void testFoo() {
+	public void sumTest() {
 		Calculator calculator = new Calculator();
-		int result = calculator.foo(this.par);
-		Assert.assertEquals(this.expectedResult, result);
+		double result = calculator.add(this.valueOne, this.valueTwo);
+		Assert.assertEquals(this.expected, result, 0);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.isw2.it;
+package com.isw2.it.CalculatorTest;
 
 /*
  *    Copyright (C) 2025 Guglielmo De Angelis (a.k.a. Gulyx)
@@ -32,7 +32,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.isw2.it.Calculator;
+import com.isw2.it.Calculator.Calculator;
 
 public class BetterCalculatorTest {	
 	private static Random r = null;
